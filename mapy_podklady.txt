@@ -1,0 +1,12 @@
+Aplikacia ktora umozni uzivatelom si na interaktivnej mape zaznacovat ktore trasy turistike trasy maju prejdene.
+
+Interaktivna turisticka mapa rovnaka ako je na mapy.com kde si uzivatel bude moct zaznacit ktore turisticke trasy uz presiel a tieto trasy budu vyzualne odlisene od zvysku
+
+
+
+aplikacia, berie podklady z mapy.com a viem si tam vyznacit konkretne turisticke trasy ktore uz som absolvoval.
+
+manualne by si to tam pridal to co bol doteraz.
+
+velka mapa, a zaznacovat si kde si uz bol.
+pozrem sa na mapu hor, a hned vidim ze kde vsade som bol.

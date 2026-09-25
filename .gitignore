@@ -1,0 +1,11 @@
+# Lokálne tajomstvá – nikdy necommitovať
+.env
+.env.*
+!.env.example
+
+node_modules/
+dist/
+pipeline/.venv/
+pipeline/data/
+pipeline/.tippecanoe-src/
+*.tsbuildinfo
