@@ -71,7 +71,7 @@ Dátový model je navrhnutý tak, aby sa tieto funkcie dali doplniť bez prestav
         │                        └────────▲──────────────────────┘
         │ generuje                        │ import úsekov
 ┌───────┴─────────────────────────────────┴──────────────┐
-│  Dátová pipeline (offline, spúšťa sa ručne / periodicky)│
+│  Dátová pipeline (offline, spúšťa sa len ručne)         │
 │  Geofabrik .osm.pbf → filter → segmentácia → PMTiles+DB │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -116,7 +116,7 @@ Toto je najdôležitejšia časť dátovej prípravy.
 3. **Úsek** je maximálna reťaz hrán medzi dvoma bodmi rezu. Ide o fyzický kus chodníka. Ak po ňom vedie viac trás (červená aj modrá), existuje ako jeden úsek so zoznamom trás a jeho označením sa „prejde“ pre všetky trasy naraz.
 4. **Veľmi krátke úseky** (napr. < 30 m medzi dvoma blízkymi križovatkami) sú na klikanie nepraktické. Prah a prípadné zlúčenie so susedom sa doladí vo fáze 0.
 5. **Stabilné ID.** `id = hash(zoradený zoznam OSM uzlov úseku)`, skrátený a deterministický. Kým sa geometria v OSM nezmení, úsek má po každej aktualizácii dát rovnaké ID.
-6. **Aktualizácia dát.** Pri novom behu pipeline sa úseky, ktoré zmizli, namapujú na nové podľa geometrického prekryvu (buffer + podiel spoločnej dĺžky) a označenia používateľov sa prenesú. Úseky bez náhrady sa zalogujú na ručnú kontrolu. Staré ID sa nemažú hneď, uložia sa do tabuľky `segment_remap`.
+6. **Aktualizácia dát.** Pipeline sa **nikdy nespúšťa automaticky** (žiadny cron ani CI), len na výslovnú požiadavku vlastníka projektu. Pri novom behu pipeline sa úseky, ktoré zmizli, namapujú na nové podľa geometrického prekryvu (buffer + podiel spoločnej dĺžky) a označenia používateľov sa prenesú. Úseky bez náhrady sa zalogujú na ručnú kontrolu. Staré ID sa nemažú hneď, uložia sa do tabuľky `segment_remap`.
 
 **Výstupy pipeline:**
 - `trails.pmtiles`: vektorové dlaždice s vrstvou `segments` (atribúty: `id`, `colors`, `names`, `length_m`), zoom cca 10–16,
@@ -185,7 +185,7 @@ create table segment_remap (
 - **Vrstvy (zdola nahor):**
   1. podklad Mapy.com `outdoor`,
   2. sieť úsekov: neviditeľná, cca 12 px široká „hit“ línia na kliknutie a tenké zvýraznenie pri prejdení myšou alebo výbere. Aktívna od zoomu cca 12.
-  3. prejdené úseky: hrubá línia s bielym okrajom vo farbe, ktorá sa nedá zameniť so značením KST/KČT (napr. purpurová `#C2185B`, nepriehľadnosť 0,85). Viditeľné na všetkých zoomoch.
+  3. prejdené úseky: hrubá línia s bielym okrajom **vo farbe svojej trasy**, nepriehľadnosť 0,9. Ak po úseku vedie viac trás, použije sa priorita červená → modrá → zelená → žltá → iná. Viditeľné na všetkých zoomoch.
 - Pri zoome < 12 sa zobrazí nápoveda „Priblíž mapu na označovanie trás“.
 
 ### 9.2 Označovanie
@@ -242,5 +242,5 @@ Hosting: web na Cloudflare Pages alebo Verceli, `trails.pmtiles` na Cloudflare R
 2. **Lícovanie OSM s podkladom Mapy.com**: vo fáze 0 overené na vzorke (Tatry, Štrbské pleso), trasy sedia. Priebežne sledovať v ďalších oblastiach.
 3. **Stabilita ID úsekov** pri aktualizácii OSM dát rieši remap (kap. 6). Treba ho otestovať na dvoch verziách extraktu.
 4. **Kvalita OSM dát**: chýbajúce alebo prerušené relácie. Riešením je oprava priamo v OSM, čo pomôže aj ostatným.
-5. **Frekvencia aktualizácie dát trás**: návrh je raz za štvrťrok, ručne.
+5. **Frekvencia aktualizácie dát trás**: rozhodnuté, bez pravidelného plánu. Dáta sa aktualizujú len vtedy, keď si to vlastník projektu vyžiada. Nič sa nespúšťa automaticky.
 6. **Offline režim**: rozhodnuté, aplikácia bude iba online (kap. 2). Keďže prejdené úseky sa zadávajú dodatočne, nie priamo na túre, slabý signál v horách funkčnosť neobmedzuje.

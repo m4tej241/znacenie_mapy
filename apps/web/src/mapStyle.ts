@@ -14,15 +14,22 @@ export const TRAIL_COLORS: Record<string, string> = {
   multi: '#455a64',
 }
 
-/** Farba prejdených úsekov – nesmie sa pliesť so značením KST/KČT. */
-export const WALKED_COLOR = '#9c27b0'
-
 const trailColor: ExpressionSpecification = [
   'match',
   ['get', 'color'],
   ...Object.entries(TRAIL_COLORS).flat(),
   TRAIL_COLORS.other,
 ] as unknown as ExpressionSpecification
+
+/** Farba prejdeného úseku: ak po ňom vedie viac trás, vyhráva červená → modrá → zelená → žltá. */
+const priorityColor: ExpressionSpecification = [
+  'case',
+  ['in', 'red', ['get', 'colors']], TRAIL_COLORS.red,
+  ['in', 'blue', ['get', 'colors']], TRAIL_COLORS.blue,
+  ['in', 'green', ['get', 'colors']], TRAIL_COLORS.green,
+  ['in', 'yellow', ['get', 'colors']], TRAIL_COLORS.yellow,
+  TRAIL_COLORS.other,
+]
 
 const state = (name: string): ExpressionSpecification => ['boolean', ['feature-state', name], false]
 
@@ -81,7 +88,7 @@ export function buildStyle(apiKey: string): StyleSpecification {
         'source-layer': TRAILS_LAYER,
         layout: { 'line-cap': 'round', 'line-join': 'round' },
         paint: {
-          'line-color': WALKED_COLOR,
+          'line-color': priorityColor,
           'line-width': ['interpolate', ['linear'], ['zoom'], 9, 2.5, 15, 7],
           'line-opacity': ['case', state('walked'), 0.9, 0],
         },
