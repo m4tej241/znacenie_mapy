@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<title>Prejdené trasy</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#f4f6f1}
+a{color:#17251c}a:hover{color:#3d5a47}
+</style>
+</helmet>
+<div style="font-family: 'Public Sans', system-ui, sans-serif; color: #17251c; background: #f4f6f1; font-size: 17px; line-height: 1.55">
+
+<!-- Navigácia -->
+<header style="border-bottom: 1px solid #dde3d6; background: #f4f6f1">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #17251c">
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#17251c"></rect><path d="M6 23 C11 21 11 12 16 12 S 21 19 26 9" stroke="#ffffff" stroke-width="5" stroke-linecap="round"></path><path d="M6 23 C11 21 11 12 16 12 S 21 19 26 9" stroke="#d32f2f" stroke-width="2.5" stroke-linecap="round"></path></svg>
+<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.01em">Prejdené trasy</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-weight: 500; font-size: 16px">
+<a href="#ako" style="text-decoration: none">Ako to funguje</a>
+<a href="#funkcie" style="text-decoration: none">Funkcie</a>
+<a href="#cennik" style="text-decoration: none">Cenník</a>
+<a href="#otazky" style="text-decoration: none">Otázky</a>
+<a href="#prihlasenie" style="text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1.5px solid #17251c; border-radius: 999px; font-weight: 600">Prihlásiť sa</a>
+</div>
+</nav>
+</header>
+
+<!-- Úvod -->
+<section id="top" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: #e4eadc; font-size: 14px; font-weight: 600; color: #2f4a3a">Značené trasy Slovenska a Česka</p>
+<h1 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 85%; font-weight: 850; font-size: clamp(44px, 6vw, 78px); line-height: 0.98; letter-spacing: -0.02em">Uvidíš, kde všade si <span style="color: {{accent}}">už bol.</span></h1>
+<p style="margin: 0; max-width: 520px; font-size: 19px; color: #3e4f44">Turistická mapa, na ktorej si jedným klikom označíš prejdené úseky trás. Otvoríš hory a hneď vidíš, ktoré chodníky máš za sebou a ktoré ešte čakajú.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px">
+<a href="#cennik" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #17251c; color: #ffffff; text-decoration: none; font-weight: 700">Pozrieť cenník</a>
+<a href="#ako" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; text-decoration: none; font-weight: 600; border: 1.5px solid #b9c4b0">Ako to funguje</a>
+</div>
+</div>
+
+<div style="flex: 1 1 480px; min-width: 0; position: relative">
+<div style="border-radius: 20px; overflow: hidden; border: 1px solid #d3dbc9; box-shadow: 0 24px 48px -24px rgba(23,37,28,0.35); background: #e9efe0">
+<svg viewBox="0 0 600 460" width="100%" style="display: block" role="img" aria-label="Ukážka mapy s prejdenými úsekmi trás">
+<rect width="600" height="460" fill="#e9efe0"></rect>
+<path d="M0 380 C120 330 180 400 300 350 S 480 300 600 330 L600 460 L0 460 Z" fill="#dfe8d2"></path>
+<g fill="none" stroke="#c7d2b6" stroke-width="1.2">
+<path d="M-10 120 C90 80 160 150 260 110 S 430 60 610 100"></path>
+<path d="M-10 160 C100 120 170 190 270 150 S 440 100 610 140"></path>
+<path d="M-10 205 C110 165 180 235 280 195 S 450 150 610 185"></path>
+<path d="M-10 250 C120 215 190 280 290 245 S 460 200 610 235"></path>
+<path d="M-10 300 C130 265 200 325 300 295 S 470 255 610 285"></path>
+<path d="M330 40 C380 20 450 40 470 80 C 480 110 420 120 380 100 C 350 85 310 60 330 40 Z"></path>
+<path d="M360 55 C390 45 430 55 440 75 C 445 90 410 95 390 85 C 370 77 350 65 360 55 Z"></path>
+</g>
+<path d="M150 300 C175 285 215 290 225 310 C 232 328 200 342 172 334 C 150 328 135 312 150 300 Z" fill="#a9cfe6" stroke="#8bbad6" stroke-width="1"></path>
+
+<!-- neprejdené úseky: tenká čiara vo farbe trasy -->
+<g fill="none" stroke-linecap="round">
+<path d="M40 420 C90 380 120 360 150 345" stroke="#1565c0" stroke-width="3"></path>
+<path d="M300 225 C340 200 370 160 400 120 S 450 70 470 40" stroke="#d32f2f" stroke-width="3"></path>
+<path d="M300 225 C350 250 420 260 480 300 S 560 360 590 380" stroke="#2e7d32" stroke-width="3"></path>
+<path d="M410 115 C450 140 500 150 560 140" stroke="#f9a825" stroke-width="3"></path>
+<path d="M235 315 C260 360 250 400 270 450" stroke="#f9a825" stroke-width="3"></path>
+</g>
+
+<!-- prejdené úseky: hrubá čiara s bielym okrajom -->
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20 250 C70 240 110 255 150 270 S 210 300 228 312" stroke="#ffffff" stroke-width="13"></path>
+<path d="M20 250 C70 240 110 255 150 270 S 210 300 228 312" stroke="#d32f2f" stroke-width="7"></path>
+<path d="M228 312 C250 280 270 250 300 225" stroke="#ffffff" stroke-width="13"></path>
+<path d="M228 312 C250 280 270 250 300 225" stroke="#d32f2f" stroke-width="7"></path>
+<path d="M150 345 C170 335 200 325 228 312" stroke="#ffffff" stroke-width="13"></path>
+<path d="M150 345 C170 335 200 325 228 312" stroke="#1565c0" stroke-width="7"></path>
+<path d="M300 225 C280 180 250 140 230 90 S 200 30 180 10" stroke="#ffffff" stroke-width="13"></path>
+<path d="M300 225 C280 180 250 140 230 90 S 200 30 180 10" stroke="#2e7d32" stroke-width="7"></path>
+</g>
+
+<!-- rozcestníky -->
+<g fill="#ffffff" stroke="#17251c" stroke-width="2">
+<circle cx="228" cy="312" r="5"></circle>
+<circle cx="300" cy="225" r="5"></circle>
+<circle cx="150" cy="345" r="5"></circle>
+<circle cx="410" cy="115" r="5"></circle>
+</g>
+<g font-family="Public Sans, sans-serif" font-size="12" font-weight="600" fill="#17251c">
+<text x="310" y="220">Sedlo</text>
+<text x="420" y="110">Chata</text>
+<text x="160" y="322" fill="#2a6f9a">Pleso</text>
+</g>
+</svg>
+</div>
+<div style="position: absolute; left: -16px; bottom: -24px; display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 14px; background: #ffffff; box-shadow: 0 12px 28px -12px rgba(23,37,28,0.35); border: 1px solid #e1e6da">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+<div style="display: flex; flex-direction: column; line-height: 1.25">
+<span style="font-size: 13px; color: #56655b">Úsek označený ako prejdený</span>
+<span style="font-weight: 700; font-size: 15px">Sedlo → Pleso</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Ako to funguje -->
+
+
+<!-- Funkcie -->
+<section id="ako" style="background: #17251c; color: #f4f6f1">
+<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-direction: column; gap: 48px">
+<h2 style="margin: 0; max-width: 640px; font-family: 'Archivo', sans-serif; font-stretch: 85%; font-weight: 800; font-size: clamp(34px, 4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">Tri kroky od túry k vyfarbenej mape</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 2px solid #3a5245">
+<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; color: #ef8a80">01</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Nájdi trasu na mape</h3>
+<p style="margin: 0; color: #c3cfc6">Podkladom je podrobná turistická mapa Mapy.com so všetkými značenými trasami.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 2px solid #3a5245">
+<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; color: #ef8a80">02</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Klikni na úsek</h3>
+<p style="margin: 0; color: #c3cfc6">Trasy sú rozdelené na úseky medzi rozcestníkmi. Označíš presne to, čo si prešiel, nie celú magistrálu.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 2px solid #3a5245">
+<span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; color: #ef8a80">03</span>
+<h3 style="margin: 0; font-size: 21px; font-weight: 700">Sleduj, ako mapa rastie</h3>
+<p style="margin: 0; color: #c3cfc6">Prejdené úseky svietia vo farbe svojej trasy hrubou čiarou. Pri každom priblížení vidíš, kde si už bol.</p>
+</div>
+</div>
+</div>
+</section><section id="funkcie" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
+<h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 85%; font-weight: 800; font-size: clamp(34px, 4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">Všetko, čo potrebuješ na zbieranie kilometrov</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 16px; background: #ffffff; border: 1px solid #e1e6da">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"></path><path d="M9 4v14"></path><path d="M15 6v14"></path></svg>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700">Mapa Mapy.com</h3>
+<p style="margin: 0; color: #4a5a4f">Rovnaká turistická mapa, akú poznáš z mapy.com: vrstevnice, chaty, rozcestníky.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 16px; background: #ffffff; border: 1px solid #e1e6da">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="18" r="2.5"></circle><circle cx="18" cy="6" r="2.5"></circle><path d="M8.5 18H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.5"></path></svg>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700">Úseky medzi rozcestníkmi</h3>
+<p style="margin: 0; color: #4a5a4f">Každá značená trasa je rozdelená na kúsky, takže označíš aj polovicu hrebeňovky.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 16px; background: #ffffff; border: 1px solid #e1e6da">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700">Farby trás</h3>
+<div style="display: flex; gap: 6px" aria-hidden="true">
+<span style="width: 28px; height: 6px; border-radius: 3px; background: #d32f2f"></span>
+<span style="width: 28px; height: 6px; border-radius: 3px; background: #1565c0"></span>
+<span style="width: 28px; height: 6px; border-radius: 3px; background: #2e7d32"></span>
+<span style="width: 28px; height: 6px; border-radius: 3px; background: #f9a825"></span>
+</div>
+<p style="margin: 0; color: #4a5a4f">Prejdený úsek sa vyfarbí farbou svojej značky: červená, modrá, zelená, žltá.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 16px; background: #ffffff; border: 1px solid #e1e6da">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="14" height="11" rx="1.5"></rect><path d="M6 19h6"></path><rect x="17" y="8" width="5" height="11" rx="1"></rect></svg>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700">Počítač aj mobil</h3>
+<p style="margin: 0; color: #4a5a4f">Funguje v prehliadači. Doma plánuješ na veľkej obrazovke, na chate označuješ v mobile.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 16px; background: #ffffff; border: 1px solid #e1e6da">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0"></path><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18"></path><path d="M12 3a14 14 0 0 0 0 18"></path></svg>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700">Slovensko a Česko</h3>
+<p style="margin: 0; color: #4a5a4f">Všetky značené turistické trasy oboch krajín, z dát OpenStreetMap.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 16px; background: #eef2e8; border: 1px dashed #b9c4b0">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#17251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M4 21h16"></path></svg>
+<h3 style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 19px; font-weight: 700">Import GPX a štatistiky <span style="font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: #17251c; color: #ffffff">Pripravujeme</span></h3>
+<p style="margin: 0; color: #4a5a4f">Nahráš záznam z hodiniek a prejdené úseky sa označia samy.</p>
+</div>
+</div>
+</section>
+
+<!-- Cenník -->
+<section id="cennik" style="background: #e4eadc">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; align-items: center; gap: 48px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; max-width: 640px">
+<h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 85%; font-weight: 800; font-size: clamp(34px, 4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">Jednoduchý cenník</h2>
+<p style="margin: 0; font-size: 19px; color: #3e4f44">Rovnaké funkcie v oboch plánoch. Vyber si, ako chceš platiť.</p>
+</div>
+
+<div style="width: 100%; max-width: 880px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; align-items: stretch">
+
+<!-- Mesačné -->
+<div style="display: flex; flex-direction: column; gap: 24px; padding: 36px; border-radius: 20px; background: #ffffff; border: 1px solid #d3dbc9">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700">Mesačné</h3>
+<p style="margin: 0; color: #4a5a4f; font-size: 16px">Pre tých, čo chodia hlavne v sezóne.</p>
+</div>
+<div style="display: flex; align-items: baseline; gap: 8px">
+<span style="font-family: 'Archivo', sans-serif; font-weight: 850; font-size: 56px; line-height: 1; letter-spacing: -0.02em">3 €</span>
+<span style="color: #4a5a4f">/ mesiac</span>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Všetky značené trasy SK a CZ</li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Neobmedzené označovanie úsekov</li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Na počítači aj v mobile</li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Zrušíš kedykoľvek</li>
+</ul>
+<a href="#mesacne" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; border: 1.5px solid #17251c; text-decoration: none; font-weight: 700">Zvoliť mesačné</a>
+</div>
+
+<!-- Ročné -->
+<div style="position: relative; display: flex; flex-direction: column; gap: 24px; padding: 36px; border-radius: 20px; background: #17251c; color: #f4f6f1; border: 1px solid #17251c">
+<span style="position: absolute; top: -14px; right: 28px; padding: 5px 14px; border-radius: 999px; background: {{accent}}; color: #ffffff; font-size: 13px; font-weight: 700">Výhodnejšie</span>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-size: 20px; font-weight: 700">Ročné</h3>
+<p style="margin: 0; color: #c3cfc6; font-size: 16px">Celý rok hôr, zima aj leto.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: baseline; gap: 8px">
+<span style="font-family: 'Archivo', sans-serif; font-weight: 850; font-size: 56px; line-height: 1; letter-spacing: -0.02em">25 €</span>
+<span style="color: #c3cfc6">/ rok</span>
+</div>
+<span style="font-size: 15px; color: #c3cfc6">vychádza na 2,08 € mesačne, ušetríš 30 %</span>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px">
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8fd19a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Všetko z mesačného plánu</li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8fd19a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Jedna platba ročne</li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8fd19a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Nižšia cena za mesiac</li>
+<li style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8fd19a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 3px" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Zrušíš kedykoľvek</li>
+</ul>
+<a href="#rocne" style="margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; background: #f4f6f1; color: #17251c; text-decoration: none; font-weight: 700">Zvoliť ročné</a>
+</div>
+</div>
+
+<p style="margin: 0; max-width: 640px; text-align: center; font-size: 14px; color: #3e4f44">Platby bezpečne spracúva Paddle: karta, Apple Pay, Google Pay alebo PayPal. Paddle vystaví faktúru a postará sa o DPH. Predplatné zrušíš alebo zmeníš v zákazníckom portáli.</p>
+</div>
+</section>
+
+<!-- Otázky -->
+<section id="otazky" style="max-width: 800px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-stretch: 85%; font-weight: 800; font-size: clamp(34px, 4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">Časté otázky</h2>
+<div style="display: flex; flex-direction: column">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 22px 0; border-top: 1px solid #d3dbc9">
+<h3 style="margin: 0; font-size: 18px; font-weight: 700">Funguje appka aj bez signálu?</h3>
+<p style="margin: 0; color: #4a5a4f">Nie, appka funguje iba online. Podmienky Mapy.com nedovoľujú ukladať mapu do zariadenia. Úseky si môžeš označiť aj doma po túre.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 22px 0; border-top: 1px solid #d3dbc9">
+<h3 style="margin: 0; font-size: 18px; font-weight: 700">Ktoré krajiny pokrýva?</h3>
+<p style="margin: 0; color: #4a5a4f">Slovensko a Česko, všetky značené turistické trasy. Ďalšie krajiny plánujeme neskôr.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 22px 0; border-top: 1px solid #d3dbc9">
+<h3 style="margin: 0; font-size: 18px; font-weight: 700">Môžem predplatné zrušiť?</h3>
+<p style="margin: 0; color: #4a5a4f">Áno, kedykoľvek v zákazníckom portáli. Prístup ti zostane do konca zaplateného obdobia.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 22px 0; border-top: 1px solid #d3dbc9; border-bottom: 1px solid #d3dbc9">
+<h3 style="margin: 0; font-size: 18px; font-weight: 700">Môžem prejsť z mesačného na ročné?</h3>
+<p style="margin: 0; color: #4a5a4f">Áno, plán zmeníš v zákazníckom portáli.</p>
+</div>
+</div>
+</section>
+
+<!-- Záverečná výzva -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 0 24px 96px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding: 48px; border-radius: 24px; background: #17251c; color: #f4f6f1">
+<h2 style="margin: 0; flex: 1 1 360px; font-family: 'Archivo', sans-serif; font-stretch: 85%; font-weight: 800; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.05">Vyfarbi si hory, ktoré už poznáš.</h2>
+<a href="#cennik" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #f4f6f1; color: #17251c; text-decoration: none; font-weight: 700">Vybrať plán</a>
+</div>
+</section>
+
+<!-- Pätička -->
+<footer style="border-top: 1px solid #d3dbc9">
+<div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; font-size: 14px; color: #4a5a4f">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-weight: 700; color: #17251c">Prejdené trasy</span>
+<span>Mapové podklady: <a href="https://mapy.com">Mapy.com</a> · © Seznam.cz a.s. and others · © OpenStreetMap contributors</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center">
+<a href="#podmienky">Obchodné podmienky</a>
+<a href="#sukromie">Ochrana súkromia</a>
+<a href="#refundacie">Refundácie</a>
+<a href="#kontakt">Kontakt</a>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#d32f2f","options":["#d32f2f","#1565c0","#2e7d32"]},"$preview":{"width":1440,"height":3900}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#d32f2f' };
+}
+}
+</script>
+</body>
+</html>
