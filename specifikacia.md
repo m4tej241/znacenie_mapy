@@ -8,6 +8,12 @@ Webová (neskôr natívna iOS) aplikácia s interaktívnou turistickou mapou v �
 
 ## 2. Rozsah
 
+### Územné pokrytie
+
+**Na začiatku pokrýva appka iba Slovensko a Česko.** Značené trasy (a neskôr ďalšie typy ciest) sú dostupné len tam, kde máme dáta, teda v SK a CZ. Podkladová mapa Mapy.com zobrazuje aj ďalšie krajiny, ale trasy mimo SK a CZ sa nedajú označovať. Ďalšie krajiny sú plánované vo fáze 6.
+
+Dôsledok pre komerčné spustenie (kap. 13, 14): pokrytie SK + CZ musí byť uvedené v popise appky, na úvodnej stránke, v cenníku a v obchodných podmienkach, aby zákazník nečakal viac.
+
 ### V rozsahu MVP (fáza 1)
 
 - Webová aplikácia použiteľná na počítači aj v mobile.
@@ -22,7 +28,7 @@ Webová (neskôr natívna iOS) aplikácia s interaktívnou turistickou mapou v �
 - Import GPX s automatickým označením prejdených úsekov a štatistiky (fáza 2).
 - Produkčná infraštruktúra a komerčné spustenie (fázy 3 a 4, kap. 13 a 14).
 - Rozšírenie o cyklotrasy, náučné chodníky a neoznačené cesty (fáza 5).
-- Ďalšie krajiny, ktoré pokrýva Mapy.com (fáza 6).
+- Ďalšie krajiny, ktoré pokrýva Mapy.com (fáza 6). Do vtedy len SK + CZ.
 - Natívna iOS aplikácia: voliteľne, neskôr. Hlavným produktom je web. Android sa neplánuje.
 
 ### Zatiaľ sa neimplementuje
@@ -375,7 +381,7 @@ Kontrolný zoznam všetkého, čo treba doplniť od prototypu (fáza 0) po plate
 
 ### 14.6 Web pre zákazníkov (fáza 4)
 
-- [ ] Úvodná stránka: čo appka robí, snímky, cenník, „Vyskúšať“
+- [ ] Úvodná stránka: čo appka robí, snímky, cenník, „Vyskúšať“, jasne uvedené pokrytie (iba SK + CZ)
 - [ ] Návod pri prvom spustení (ako označiť úsek)
 - [ ] Mobilné rozhranie a ikonka na plochu (PWA bez offline režimu)
 - [ ] Otázky a odpovede, kontakt na podporu
