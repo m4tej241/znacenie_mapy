@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<title>Mapa – menu účtu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#17251c}a:hover{color:#3d5a47}
+</style>
+</helmet>
+<div style="position: relative; width: 1280px; height: 800px; overflow: hidden; font-family: 'Public Sans', system-ui, sans-serif; color: #17251c; font-size: 15px; line-height: 1.45; background: #e9efe0">
+
+<!-- Ilustrácia mapy (v appke tu sú dlaždice Mapy.com) -->
+<svg viewBox="0 0 1280 800" width="1280" height="800" style="position: absolute; inset: 0; display: block" aria-hidden="true">
+<rect width="1280" height="800" fill="#e9efe0"></rect>
+<path d="M0 640 C220 580 360 690 600 620 S 980 540 1280 600 L1280 800 L0 800 Z" fill="#dfe8d2"></path>
+<path d="M760 0 L1280 0 L1280 260 C1150 300 1040 220 940 240 C 860 255 790 160 760 0 Z" fill="#d6e3c6"></path>
+<g fill="none" stroke="#c7d2b6" stroke-width="1.2">
+<path d="M-10 170 C180 110 330 220 540 160 S 900 80 1290 140"></path>
+<path d="M-10 230 C200 170 350 280 560 220 S 920 140 1290 200"></path>
+<path d="M-10 300 C220 240 370 345 580 290 S 940 210 1290 265"></path>
+<path d="M-10 370 C240 315 390 410 600 360 S 960 285 1290 335"></path>
+<path d="M-10 445 C260 395 410 480 620 435 S 980 365 1290 410"></path>
+<path d="M-10 520 C280 475 430 555 640 510 S 1000 445 1290 485"></path>
+<path d="M700 70 C780 30 900 60 930 130 C 945 180 850 200 780 170 C 730 148 670 110 700 70 Z"></path>
+<path d="M745 95 C795 78 860 92 875 125 C 882 150 830 160 800 145 C 770 133 730 112 745 95 Z"></path>
+</g>
+<path d="M330 470 C380 440 460 450 480 490 C 495 525 430 552 375 538 C 330 527 300 495 330 470 Z" fill="#a9cfe6" stroke="#8bbad6" stroke-width="1"></path>
+<g font-family="Public Sans, sans-serif" font-size="13" font-weight="600" fill="#3d4f43">
+<text x="790" y="128">Kriváň 2494</text>
+<text x="352" y="505" fill="#2a6f9a">Štrbské pleso</text>
+<text x="650" y="350">Sedlo</text>
+<text x="960" y="232">Chata</text>
+</g>
+<g fill="none" stroke-linecap="round">
+<path d="M60 780 C160 720 240 660 300 600" stroke="#1565c0" stroke-width="3"></path>
+<path d="M640 360 C720 320 780 260 840 200 S 930 120 980 60" stroke="#d32f2f" stroke-width="3"></path>
+<path d="M640 360 C740 410 860 430 980 500 S 1150 610 1280 650" stroke="#2e7d32" stroke-width="3"></path>
+<path d="M860 190 C940 220 1040 240 1180 225" stroke="#f9a825" stroke-width="3"></path>
+<path d="M480 520 C530 600 520 690 560 800" stroke="#f9a825" stroke-width="3"></path>
+</g>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M0 400 C120 385 220 410 310 440 S 430 500 478 520" stroke="#ffffff" stroke-width="12"></path>
+<path d="M0 400 C120 385 220 410 310 440 S 430 500 478 520" stroke="#d32f2f" stroke-width="7"></path>
+<path d="M478 520 C530 460 580 410 640 360" stroke="#ffffff" stroke-width="12"></path>
+<path d="M478 520 C530 460 580 410 640 360" stroke="#d32f2f" stroke-width="7"></path>
+<path d="M300 600 C360 570 420 545 478 520" stroke="#ffffff" stroke-width="12"></path>
+<path d="M300 600 C360 570 420 545 478 520" stroke="#1565c0" stroke-width="7"></path>
+<path d="M640 360 C600 290 560 220 520 140 S 470 40 440 0" stroke="#ffffff" stroke-width="12"></path>
+<path d="M640 360 C600 290 560 220 520 140 S 470 40 440 0" stroke="#2e7d32" stroke-width="7"></path>
+</g>
+<g fill="#ffffff" stroke="#17251c" stroke-width="2">
+<circle cx="478" cy="520" r="5"></circle>
+<circle cx="640" cy="360" r="5"></circle>
+<circle cx="300" cy="600" r="5"></circle>
+<circle cx="860" cy="190" r="5"></circle>
+</g>
+</svg>
+
+<!-- Logo Mapy.com (v appke obrázok z api.mapy.com) -->
+<a href="https://mapy.com" style="position: absolute; top: 12px; left: 12px; display: flex; align-items: center; height: 32px; padding: 0 10px; border-radius: 8px; background: #ffffff; text-decoration: none; font-weight: 800; font-size: 14px; color: #17251c; box-shadow: 0 2px 8px rgba(23,37,28,0.18)">Mapy.com</a>
+
+<!-- Panel nástrojov (existujúci) -->
+<div style="position: absolute; top: 56px; left: 12px; display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 14px; background: #ffffff; border: 1px solid #e1e6da; box-shadow: 0 8px 24px -12px rgba(23,37,28,0.35); font-size: 14px">
+<label style="display: flex; align-items: center; gap: 8px"><input type="checkbox" style="accent-color: #17251c"> Rýchly režim</label>
+<label style="display: flex; align-items: center; gap: 8px"><input type="checkbox" checked style="accent-color: #17251c"> Sieť úsekov</label>
+<span style="font-size: 13px; color: #4a5a4f">Prejdené: 27</span>
+</div>
+
+<!-- Tlačidlo účtu vpravo hore -->
+<button type="button" aria-haspopup="menu" aria-expanded="{{open}}" aria-label="Môj účet" onClick="{{toggle}}" style="position: absolute; top: 12px; right: 12px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 4px 12px 4px 4px; border-radius: 999px; border: 1px solid #e1e6da; background: #ffffff; color: #17251c; font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 8px 24px -12px rgba(23,37,28,0.45)">
+<span style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 999px; background: #17251c; color: #ffffff">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg>
+</span>
+<span>Môj účet</span>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+</button>
+
+<!-- Rozbalené menu -->
+<sc-if value="{{open}}" hint-placeholder-val="{{ true }}">
+<div role="menu" aria-label="Môj účet" style="position: absolute; top: 66px; right: 12px; width: 300px; display: flex; flex-direction: column; border-radius: 18px; background: #ffffff; border: 1px solid #e1e6da; box-shadow: 0 24px 48px -20px rgba(23,37,28,0.45); overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 18px 18px 16px; background: #f4f6f1; border-bottom: 1px solid #e1e6da">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 13px; color: #4a5a4f">Prihlásený ako</span>
+<span style="font-weight: 700; font-size: 15px; overflow-wrap: anywhere">[e-mail používateľa]</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="padding: 4px 10px; border-radius: 999px; background: #17251c; color: #ffffff; font-size: 12px; font-weight: 700">Ročné predplatné</span>
+<span style="font-size: 13px; color: #4a5a4f">do [dátum]</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; padding: 6px">
+<a role="menuitem" href="#profil" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-weight: 600">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#17251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path></svg>
+Profil
+</a>
+<a role="menuitem" href="#nastavenia" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-weight: 600">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#17251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10"></path><path d="M18 7h2"></path><circle cx="16" cy="7" r="2"></circle><path d="M4 17h2"></path><path d="M10 17h10"></path><circle cx="8" cy="17" r="2"></circle></svg>
+Nastavenia
+</a>
+<a role="menuitem" href="#predplatne" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 10px; text-decoration: none; font-weight: 600">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#17251c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M7 15h4"></path></svg>
+Predplatné
+</a>
+</div>
+<div style="padding: 6px; border-top: 1px solid #e1e6da">
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border: 0; border-radius: 10px; background: transparent; color: #b3261e; font-family: inherit; font-size: 15px; font-weight: 600; text-align: left; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"></path><path d="M10 17l-5-5 5-5"></path><path d="M5 12h11"></path></svg>
+Odhlásiť sa
+</button>
+</div>
+</div>
+</sc-if>
+
+<!-- Atribúcia mapy -->
+<div style="position: absolute; right: 0; bottom: 0; padding: 3px 8px; background: rgba(255,255,255,0.85); font-size: 11px; color: #33443a; border-top-left-radius: 6px">© Seznam.cz a.s. and others · © OpenStreetMap contributors</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { open: true };
+}
+renderVals() {
+return {
+open: this.state.open,
+toggle: () => this.setState({ open: !this.state.open })
+};
+}
+}
+</script>
+</body>
+</html>
