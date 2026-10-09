@@ -306,7 +306,7 @@ create table subscriptions (
 
 - Náklady na Mapy.com sa opakujú každý mesiac za každého aktívneho používateľa, preto **predplatné**, nie jednorazová platba.
 - Pevný poplatok 0,50 USD je pri nízkych cenách citeľný (pri 1,50 € mesačne asi tretina platby). Preto **uprednostniť ročné predplatné** (napr. 12 € ročne, poplatok ~9 %) alebo mesačnú cenu aspoň 3 – 4 €.
-- Konkrétna cena je otvorená, rozhodne sa pred fázou 4.
+- **Rozhodnutá cena:** **3 € mesačne** alebo **25 € ročne** (vychádza na 2,08 € mesačne, o 30 % menej). Pri ročnom pláne tvorí poplatok Paddle asi 7 %, pri mesačnom asi 20 %. Úvodná stránka s cenníkom: tiket T-007.
 
 ### 13.5 Predpoklady spustenia predaja
 

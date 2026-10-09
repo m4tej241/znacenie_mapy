@@ -21,3 +21,4 @@ Stavy: `draft` → `ready` → `in-progress` → `review` → `done`.
 | [T-004](T-004-vrstva-prejdenych.md) | Vrstva prejdených úsekov z databázy | 1 | draft | T-003 |
 | [T-005](T-005-undo-offline.md) | Undo a hlásenie pri výpadku internetu | 1 | draft | T-003 |
 | [T-006](T-006-ucet-zmazanie.md) | Stránka účtu a zmazanie účtu | 1 | draft | T-002 |
+| [T-007](T-007-uvodna-stranka.md) | Úvodná stránka s cenníkom (mesačné a ročné predplatné) | 4 | draft | – |
