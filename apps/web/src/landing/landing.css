@@ -1,0 +1,152 @@
+:root {
+  --bg: #f4f6f1;
+  --ink: #17251c;
+  --ink-soft: #4a5a4f;
+  --ink-on-dark: #c3cfc6;
+  --pricing-bg: #e4eadc;
+  --border: #d3dbc9;
+  --card-border: #e1e6da;
+  --accent: #d32f2f;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 8px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Public Sans', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+}
+a { color: var(--ink); }
+a:hover { color: #3d5a47; }
+h1, h2, h3, p, ul { margin: 0; }
+h3 { font-size: 19px; font-weight: 700; }
+
+.container { max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.accent { color: var(--accent); }
+
+.h2 {
+  font-family: 'Archivo Variable', 'Archivo', sans-serif;
+  font-stretch: 85%;
+  font-weight: 800;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  max-width: 640px;
+}
+
+/* Tlačidlá */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn--small { min-height: 44px; padding: 0 18px; font-weight: 600; }
+.btn--dark, .btn--dark:hover { background: var(--ink); color: #fff; }
+.btn--light, .btn--light:hover { background: var(--bg); color: var(--ink); }
+.btn--outline { border: 1.5px solid var(--ink); }
+.btn--outline-soft { border: 1.5px solid #b9c4b0; font-weight: 600; padding: 0 24px; }
+
+/* Navigácia */
+.nav { border-bottom: 1px solid #dde3d6; }
+.nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 18px; padding-bottom: 18px; }
+.nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.01em; min-height: 44px; }
+.nav__links { display: flex; align-items: center; gap: 8px 28px; font-weight: 500; font-size: 16px; }
+.nav__anchor { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+
+/* Úvod */
+.hero { display: flex; flex-wrap: wrap; align-items: center; gap: 56px; padding-top: 72px; padding-bottom: 88px; }
+.hero__text { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+.tag { align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: var(--pricing-bg); font-size: 14px; font-weight: 600; color: #2f4a3a; }
+.hero__title { font-family: 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 85%; font-weight: 850; font-size: clamp(44px, 6vw, 78px); line-height: 0.98; letter-spacing: -0.02em; }
+.hero__lead { max-width: 520px; font-size: 19px; color: #3e4f44; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
+.hero-map { flex: 1 1 480px; min-width: 0; position: relative; }
+.hero-map__frame { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 24px 48px -24px rgba(23, 37, 28, 0.35); background: #e9efe0; }
+.hero-map__svg { display: block; }
+.hero-map__card { position: absolute; left: -16px; bottom: -24px; display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 14px; background: #fff; box-shadow: 0 12px 28px -12px rgba(23, 37, 28, 0.35); border: 1px solid var(--card-border); }
+.hero-map__card-text { display: flex; flex-direction: column; line-height: 1.25; }
+.hero-map__card-text span { font-size: 13px; color: #56655b; }
+.hero-map__card-text strong { font-size: 15px; }
+
+/* Ako to funguje */
+.how { background: var(--ink); color: var(--bg); }
+.how__inner { display: flex; flex-direction: column; gap: 48px; padding-top: 88px; padding-bottom: 88px; }
+.how__steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; }
+.step { display: flex; flex-direction: column; gap: 12px; padding-top: 20px; border-top: 2px solid #3a5245; }
+.step__num { font-family: 'Archivo Variable', 'Archivo', sans-serif; font-weight: 800; font-size: 40px; line-height: 1; color: #ef8a80; }
+.step h3 { font-size: 21px; }
+.step p { color: var(--ink-on-dark); }
+
+/* Funkcie */
+.features { display: flex; flex-direction: column; gap: 48px; padding-top: 96px; padding-bottom: 96px; }
+.features__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; }
+.card { display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 16px; background: #fff; border: 1px solid var(--card-border); }
+.card p { color: var(--ink-soft); }
+.card--soon { background: #eef2e8; border: 1px dashed #b9c4b0; }
+.card h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.badge { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--ink); color: #fff; }
+.stripes { display: flex; gap: 6px; }
+.stripes span { width: 28px; height: 6px; border-radius: 3px; }
+
+/* Cenník */
+.pricing { background: var(--pricing-bg); }
+.pricing__inner { display: flex; flex-direction: column; align-items: center; gap: 48px; padding-top: 96px; padding-bottom: 96px; }
+.pricing__head { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; max-width: 640px; }
+.pricing__sub { font-size: 19px; color: #3e4f44; }
+.plans { width: 100%; max-width: 880px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+.plan { position: relative; display: flex; flex-direction: column; gap: 24px; padding: 36px; border-radius: 20px; }
+.plan h3 { font-size: 20px; }
+.plan__desc { font-size: 16px; margin-top: 6px; }
+.plan__price { display: flex; align-items: baseline; gap: 8px; }
+.plan__amount { font-family: 'Archivo Variable', 'Archivo', sans-serif; font-weight: 850; font-size: 56px; line-height: 1; letter-spacing: -0.02em; }
+.plan__price-box { display: flex; flex-direction: column; gap: 6px; }
+.plan__note { font-size: 15px; }
+.plan__list { padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.plan__list li { display: flex; gap: 10px; align-items: flex-start; }
+.check { flex: none; margin-top: 3px; }
+.plan__cta { margin-top: auto; }
+.plan--monthly { background: #fff; border: 1px solid var(--border); }
+.plan--monthly .plan__desc, .plan--monthly .plan__unit { color: var(--ink-soft); }
+.plan--featured { background: var(--ink); color: var(--bg); border: 1px solid var(--ink); }
+.plan--featured .plan__desc, .plan--featured .plan__unit, .plan--featured .plan__note { color: var(--ink-on-dark); }
+.plan__ribbon { position: absolute; top: -14px; right: 28px; padding: 5px 14px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; }
+.pricing__note { max-width: 640px; text-align: center; font-size: 14px; color: #3e4f44; }
+
+/* Otázky */
+.faq { max-width: 800px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 32px; }
+.faq__list { display: flex; flex-direction: column; border-bottom: 1px solid var(--border); }
+.faq__item { display: flex; flex-direction: column; gap: 6px; padding: 22px 0; border-top: 1px solid var(--border); }
+.faq__item h3 { font-size: 18px; }
+.faq__item p { color: var(--ink-soft); }
+
+/* Záverečná výzva */
+.cta { padding-bottom: 96px; }
+.cta__box { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; padding: 48px; border-radius: 24px; background: var(--ink); color: var(--bg); }
+.cta__box h2 { flex: 1 1 360px; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 85%; font-weight: 800; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.05; }
+
+/* Pätička */
+.footer { border-top: 1px solid var(--border); }
+.footer__inner { display: flex; flex-direction: column; gap: 6px; padding-top: 32px; padding-bottom: 40px; font-size: 14px; color: var(--ink-soft); }
+.footer__inner strong { color: var(--ink); }
+
+@media (max-width: 700px) {
+  .plans { grid-template-columns: 1fr; }
+  .plan--yearly { order: -1; }
+  .plan { padding: 28px; }
+  .cta__box { padding: 32px 24px; }
+}
+
+@media (max-width: 640px) {
+  .nav__anchor { display: none; }
+  .hero { padding-top: 40px; padding-bottom: 64px; gap: 40px; }
+  .hero-map__card { left: 8px; }
+  .how__inner, .features, .pricing__inner, .faq { padding-top: 64px; padding-bottom: 64px; }
+}

@@ -1,10 +1,10 @@
 ---
 id: T-007
 nazov: Úvodná stránka s cenníkom (mesačné a ročné predplatné)
-stav: draft
+stav: review
 faza: 4
 zavisi-od: []
-vetva:
+vetva: tiket/T-007-uvodna-stranka
 ---
 
 ## Kontext
@@ -152,3 +152,4 @@ V headless Chrome (puppeteer-core, pozri `CLAUDE.md`):
 
 ## Výsledok implementácie
 
+Implementované podľa tiketu. `tsc -b` a `npm run build -- --base=/znacenie_mapy/` prešli, `dist/index.html` aj `dist/app/index.html` vznikajú s base cestou, `maplibre-gl` je iba v bundli appky. V headless Chrome: bez vodorovného posuvníka pri 390 px, žiadne požiadavky na Google, `/#15/…` presmeruje na `/app/#15/…`, `/#cennik` nepresmeruje. Poradie kariet: na desktope mesačné vľavo, pod 700 px ročné prvé.

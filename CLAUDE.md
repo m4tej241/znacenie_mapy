@@ -5,6 +5,8 @@ Webová appka: interaktívna turistická mapa (podklad Mapy.com), na ktorej si p
 ## Štruktúra
 
 - `apps/web/`: React 18 + TypeScript + Vite 5 + MapLibre GL JS 4 + pmtiles
+  - `index.html` + `src/landing/`: úvodná stránka s cenníkom (`/`), bez MapLibre v bundli
+  - `app/index.html`: vstup mapovej appky (`/app/`)
   - `src/mapStyle.ts`: zdroje a vrstvy mapy, farby trás
   - `src/App.tsx`: mapa, výber a označovanie úsekov, UI
   - `public/trails.pmtiles`: vektorové dlaždice úsekov (generuje pipeline)
@@ -28,6 +30,7 @@ cd pipeline && ./run.sh                # IBA na výslovnú žiadosť vlastníka 
 - Povinná atribúcia na mape: logo Mapy.com (min. 30 px, odkaz na mapy.com), „© Seznam.cz a.s. and others“, „© OpenStreetMap contributors“.
 - **Texty v UI a komentáre v kóde sú po slovensky**, identifikátory v kóde po anglicky.
 - Prejdené úseky sa kreslia vo farbe svojej trasy (priorita červená → modrá → zelená → žltá) hrubou čiarou s bielym okrajom.
+- **Pokrytie je zatiaľ iba Slovensko a Česko.** Dáta trás sú len pre SK + CZ, ďalšie krajiny až neskôr (fáza 6). Vo funkciách, textoch a marketingu nesľubuj viac.
 - Neprepisuj veci mimo rozsahu úlohy. Ak niečo treba rozhodnúť, opýtaj sa.
 
 ## Tikety
@@ -54,6 +57,6 @@ const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', hea
   args: ['--no-sandbox', '--enable-unsafe-swiftshader', '--use-angle=swiftshader'] })
 ```
 
-- Skúšobné miesto s trasou: `http://localhost:5173/#15/49.1208467/20.0605401` (Štrbské pleso). Klik na stred (640,400) pri okne 1280×800 vyberie úsek magistrály.
+- Skúšobné miesto s trasou: `http://localhost:5173/app/#15/49.1208467/20.0605401` (Štrbské pleso). Klik na stred (640,400) pri okne 1280×800 vyberie úsek magistrály.
 - Úseky sú klikateľné od zoomu 12.
 - Prostredie: Node 18 (preto Vite 5), Python 3.12, venv v `pipeline/.venv`.
