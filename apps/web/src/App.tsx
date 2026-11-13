@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import maplibregl, { type MapGeoJSONFeature } from 'maplibre-gl'
 import { Protocol } from 'pmtiles'
+import 'maplibre-gl/dist/maplibre-gl.css'
 import { buildStyle, MIN_EDIT_ZOOM, TRAIL_COLORS, TRAILS_LAYER, TRAILS_SOURCE } from './mapStyle'
 
 const API_KEY = import.meta.env.VITE_MAPY_API_KEY
@@ -34,7 +35,7 @@ function formatLength(m: number) {
 const protocol = new Protocol()
 maplibregl.addProtocol('pmtiles', protocol.tile)
 
-export function App() {
+export function App({ userEmail, onSignOut }: { userEmail: string; onSignOut: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   const [selected, setSelected] = useState<Segment | null>(null)
@@ -159,6 +160,9 @@ export function App() {
           Sieť úsekov
         </label>
         <span className="muted">Prejdené: {walked.size}</span>
+        <button className="signout" onClick={onSignOut} title={userEmail}>
+          Odhlásiť sa
+        </button>
       </div>
 
       {zoom < MIN_EDIT_ZOOM && <div className="hint">Priblíž mapu na označovanie trás</div>}

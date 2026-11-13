@@ -14,10 +14,10 @@ Základ fázy 1: databáza na účty a prejdené úseky. Návrh je v `specifikac
 ## Rozsah
 
 **Áno:**
-- založenie Supabase projektu (región EÚ), PostGIS,
+- PostGIS v Supabase projekte (projekt sa zakladá podľa návodu v T-002),
 - SQL migrácie v `supabase/migrations/`: tabuľky, indexy, RLS politiky,
 - RPC `my_walked_segments()` (kap. 8),
-- napojenie klienta: `@supabase/supabase-js`, premenné `VITE_SUPABASE_URL` a `VITE_SUPABASE_ANON_KEY` v `.env.example`.
+- klient `@supabase/supabase-js` a premenné `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` už pridal T-002 (`apps/web/src/supabase.ts`).
 
 **Nie:** prihlasovanie v UI (T-002), ukladanie označení z mapy (T-003).
 

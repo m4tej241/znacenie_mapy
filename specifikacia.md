@@ -19,7 +19,7 @@ Dôsledok pre komerčné spustenie (kap. 13, 14): pokrytie SK + CZ musí byť uv
 - Webová aplikácia použiteľná na počítači aj v mobile.
 - Podkladová turistická mapa z Mapy.com.
 - Značené turistické trasy na Slovensku a v Česku, rozdelené na úseky medzi rozcestníkmi alebo križovatkami.
-- Prihlásenie. Aplikácia je uzavretá, účty dostanú len pozvaní používatelia (autor a kamaráti).
+- Prihlásenie výhradne cez Google účet. Bez prihlásenia sa na mapu nedá dostať. Prihlásiť sa môže ktokoľvek s Google účtom.
 - Ručné označenie a odznačenie úseku kliknutím.
 - Zobrazenie všetkých prejdených úsekov prihláseného používateľa na každom priblížení mapy.
 
@@ -73,7 +73,7 @@ Dátový model je navrhnutý tak, aby sa tieto funkcie dali doplniť bez prestav
         │ HTTP Range                      │ supabase-js (Auth, RPC, REST)
 ┌───────▼──────────┐             ┌────────▼──────────────────────┐
 │ trails.pmtiles   │             │ Supabase                      │
-│ (R2 / statický   │             │  Auth (len pozvaní)           │
+│ (R2 / statický   │             │  Auth (Google)                │
 │  hosting)        │             │  Postgres + PostGIS           │
 └───────▲──────────┘             │   segments, user_segments     │
         │                        └────────▲──────────────────────┘
@@ -205,8 +205,9 @@ create table segment_remap (
 
 ### 9.3 Prihlásenie
 
-- Supabase Auth: e-mail cez magic link (voliteľne Google).
-- Verejná registrácia je vypnutá, používateľov pozýva administrátor cez Supabase dashboard.
+- Supabase Auth, **jediný spôsob prihlásenia je Google účet** (OAuth). E-mail, heslo ani magic link sa nepoužívajú, poskytovateľ Email je v Supabase vypnutý.
+- Mapová appka (`/app/`) je celá za prihlásením: neprihlásený používateľ vidí len prihlasovaciu obrazovku, mapa ani dlaždice Mapy.com sa nenačítajú.
+- Účet vznikne pri prvom prihlásení. Prihlásiť sa môže ktokoľvek s Google účtom (tiket T-002).
 
 ### 9.4 Nefunkčné požiadavky
 
@@ -338,7 +339,7 @@ Kontrolný zoznam všetkého, čo treba doplniť od prototypu (fáza 0) po plate
 
 ### 14.1 Základ appky (fáza 1)
 
-- [ ] Účty: registrácia a prihlásenie e-mailom (prípadne Google), obnova hesla, odhlásenie
+- [ ] Účty: prihlásenie cez Google (jediný spôsob), odhlásenie
 - [ ] Ukladanie označení do databázy
 - [ ] Vrstva prejdených úsekov z databázy, viditeľná na každom zoome
 - [ ] Undo a hlásenie pri výpadku internetu
@@ -385,7 +386,7 @@ Kontrolný zoznam všetkého, čo treba doplniť od prototypu (fáza 0) po plate
 - [ ] Návod pri prvom spustení (ako označiť úsek)
 - [ ] Mobilné rozhranie a ikonka na plochu (PWA bez offline režimu)
 - [ ] Otázky a odpovede, kontakt na podporu
-- [ ] Otvorenie registrácie (doteraz len pozvaní)
+- [x] Otvorenie registrácie: prihlásiť sa môže ktokoľvek s Google účtom (T-002)
 
 ### 14.7 Otvorené rozhodnutia
 

@@ -9,6 +9,7 @@ Webová appka: interaktívna turistická mapa (podklad Mapy.com), na ktorej si p
   - `app/index.html`: vstup mapovej appky (`/app/`)
   - `src/mapStyle.ts`: zdroje a vrstvy mapy, farby trás
   - `src/App.tsx`: mapa, výber a označovanie úsekov, UI
+  - `src/AuthGate.tsx`, `src/LoginScreen.tsx`, `src/auth.ts`, `src/supabase.ts`: prihlásenie cez Google (Supabase Auth), mapa sa načíta až po prihlásení
   - `public/trails.pmtiles`: vektorové dlaždice úsekov (generuje pipeline)
 - `pipeline/`: Python (pyosmium) + tippecanoe. `segment.py` delí OSM trasy na úseky, `run.sh` celý beh.
 - `tickets/`: tikety (pozri nižšie)
@@ -59,4 +60,5 @@ const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', hea
 
 - Skúšobné miesto s trasou: `http://localhost:5173/app/#15/49.1208467/20.0605401` (Štrbské pleso). Klik na stred (640,400) pri okne 1280×800 vyberie úsek magistrály.
 - Úseky sú klikateľné od zoomu 12.
+- Mapa je za prihlásením (Google cez Supabase). Bez `VITE_SUPABASE_URL` a `VITE_SUPABASE_ANON_KEY` sa zobrazí chyba, bez relácie prihlasovacia obrazovka. V headless teste sa relácia dá podvrhnúť: pred načítaním stránky vložiť do `localStorage` kľúč `sb-<ref projektu>-auth-token` s JSON reláciou (`access_token` v tvare JWT s `exp` v budúcnosti, `refresh_token`, `expires_at`, `user`).
 - Prostredie: Node 18 (preto Vite 5), Python 3.12, venv v `pipeline/.venv`.

@@ -16,7 +16,7 @@ Stavy: `draft` → `ready` → `in-progress` → `review` → `done`.
 | Tiket | Názov | Fáza | Stav | Závisí od |
 |---|---|---|---|---|
 | [T-001](T-001-supabase-schema.md) | Supabase projekt a databázová schéma | 1 | draft | – |
-| [T-002](T-002-prihlasenie.md) | Prihlásenie, registrácia a odhlásenie | 1 | draft | T-001 |
+| [T-002](T-002-prihlasenie.md) | Prihlásenie cez Google a odhlásenie | 1 | review | – |
 | [T-003](T-003-ukladanie-oznaceni.md) | Ukladanie označení do databázy | 1 | draft | T-001, T-002 |
 | [T-004](T-004-vrstva-prejdenych.md) | Vrstva prejdených úsekov z databázy | 1 | draft | T-003 |
 | [T-005](T-005-undo-offline.md) | Undo a hlásenie pri výpadku internetu | 1 | draft | T-003 |
