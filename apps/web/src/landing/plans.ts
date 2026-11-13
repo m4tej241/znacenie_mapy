@@ -1,3 +1,7 @@
+// Cenník a plány sa na úvodnej stránke zobrazia, len keď je táto voľba true.
+// Zatiaľ je skrytý, kód cenníka zostáva zachovaný.
+export const SHOW_PRICING = false
+
 export const PRICE_MONTHLY_EUR = 3
 export const PRICE_YEARLY_EUR = 25
 export const yearlyPerMonth = PRICE_YEARLY_EUR / 12

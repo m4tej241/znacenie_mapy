@@ -6,6 +6,7 @@ import {
   PRICE_YEARLY_EUR,
   formatEur,
   yearlyPerMonth,
+  SHOW_PRICING,
   yearlySavingPct,
 } from './plans'
 
@@ -56,7 +57,7 @@ function Nav() {
         <div className="nav__links">
           <a href="#ako" className="nav__anchor">Ako to funguje</a>
           <a href="#funkcie" className="nav__anchor">Funkcie</a>
-          <a href="#cennik" className="nav__anchor">Cenník</a>
+          {SHOW_PRICING && <a href="#cennik" className="nav__anchor">Cenník</a>}
           <a href="#otazky" className="nav__anchor">Otázky</a>
           <a href={APP_URL} className="btn btn--outline btn--small">Prihlásiť sa</a>
         </div>
@@ -76,7 +77,9 @@ function Hero() {
           vidíš, ktoré chodníky máš za sebou a ktoré ešte čakajú.
         </p>
         <div className="hero__actions">
-          <a href="#cennik" className="btn btn--dark">Pozrieť cenník</a>
+          {SHOW_PRICING
+            ? <a href="#cennik" className="btn btn--dark">Pozrieť cenník</a>
+            : <a href={APP_URL} className="btn btn--dark">Otvoriť mapu</a>}
           <a href="#ako" className="btn btn--outline-soft">Ako to funguje</a>
         </div>
       </div>
@@ -220,12 +223,15 @@ function Pricing() {
   )
 }
 
-const FAQ = [
+const ALL_FAQ = [
   ['Funguje appka aj bez signálu?', 'Nie, appka funguje iba online. Podmienky Mapy.com nedovoľujú ukladať mapu do zariadenia. Úseky si môžeš označiť aj doma po túre.'],
   ['Ktoré krajiny pokrýva?', 'Slovensko a Česko, všetky značené turistické trasy. Ďalšie krajiny plánujeme neskôr.'],
   ['Môžem predplatné zrušiť?', 'Áno, kedykoľvek v zákazníckom portáli. Prístup ti zostane do konca zaplateného obdobia.'],
   ['Môžem prejsť z mesačného na ročné?', 'Áno, plán zmeníš v zákazníckom portáli.'],
 ]
+
+// Otázky o predplatnom sa zobrazujú len spolu s cenníkom.
+const FAQ = SHOW_PRICING ? ALL_FAQ : ALL_FAQ.filter(([q]) => !/predplatné|mesačného/.test(q))
 
 function Faq() {
   return (
@@ -248,7 +254,9 @@ function FinalCta() {
     <section className="container cta">
       <div className="cta__box">
         <h2>Vyfarbi si hory, ktoré už poznáš.</h2>
-        <a href="#cennik" className="btn btn--light">Vybrať plán</a>
+        {SHOW_PRICING
+          ? <a href="#cennik" className="btn btn--light">Vybrať plán</a>
+          : <a href={APP_URL} className="btn btn--light">Otvoriť mapu</a>}
       </div>
     </section>
   )
@@ -275,7 +283,7 @@ export function Landing() {
         <Hero />
         <HowItWorks />
         <Features />
-        <Pricing />
+        {SHOW_PRICING && <Pricing />}
         <Faq />
         <FinalCta />
       </main>
